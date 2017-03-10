@@ -15,7 +15,7 @@ import (
 
 	strfmt "github.com/go-openapi/strfmt"
 
-	"github.com/whpearson/todo-client/models"
+	"github.com/go-swagger/go-swagger/examples/todo-list/models"
 )
 
 // NewAddOneParams creates a new AddOneParams object
@@ -45,6 +45,15 @@ func NewAddOneParamsWithContext(ctx context.Context) *AddOneParams {
 	return &AddOneParams{
 
 		Context: ctx,
+	}
+}
+
+// NewAddOneParamsWithHTTPClient creates a new AddOneParams object
+// with the default values initialized, and the ability to set a custom HTTPClient for a request
+func NewAddOneParamsWithHTTPClient(client *http.Client) *AddOneParams {
+	var ()
+	return &AddOneParams{
+		HTTPClient: client,
 	}
 }
 
@@ -81,6 +90,17 @@ func (o *AddOneParams) WithContext(ctx context.Context) *AddOneParams {
 // SetContext adds the context to the add one params
 func (o *AddOneParams) SetContext(ctx context.Context) {
 	o.Context = ctx
+}
+
+// WithHTTPClient adds the HTTPClient to the add one params
+func (o *AddOneParams) WithHTTPClient(client *http.Client) *AddOneParams {
+	o.SetHTTPClient(client)
+	return o
+}
+
+// SetHTTPClient adds the HTTPClient to the add one params
+func (o *AddOneParams) SetHTTPClient(client *http.Client) {
+	o.HTTPClient = client
 }
 
 // WithBody adds the body to the add one params
