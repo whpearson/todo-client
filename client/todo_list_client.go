@@ -9,7 +9,7 @@ import (
 
 	strfmt "github.com/go-openapi/strfmt"
 
-	"github.com/go-swagger/go-swagger/examples/todo-list/client/todos"
+	"github.com/whpearson/todo-client/client/todos"
 )
 
 // Default todo list HTTP client.
