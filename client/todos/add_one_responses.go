@@ -10,7 +10,8 @@ import (
 	"github.com/go-openapi/runtime"
 
 	strfmt "github.com/go-openapi/strfmt"
-  "github.com/whpearson/todo-client/models"
+
+	"github.com/whpearson/todo-client/models"
 )
 
 // AddOneReader is a Reader for the AddOne structure.

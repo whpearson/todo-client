@@ -11,8 +11,7 @@ import (
 
 	strfmt "github.com/go-openapi/strfmt"
 
-  "github.com/whpearson/todo-client/models"
-
+	"github.com/whpearson/todo-client/models"
 )
 
 // UpdateOneReader is a Reader for the UpdateOne structure.

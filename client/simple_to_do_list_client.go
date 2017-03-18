@@ -12,7 +12,7 @@ import (
 	"github.com/whpearson/todo-client/client/todos"
 )
 
-// Default todo list HTTP client.
+// Default simple to do list HTTP client.
 var Default = NewHTTPClient(nil)
 
 const (
@@ -27,14 +27,14 @@ const (
 // DefaultSchemes are the default schemes found in Meta (info) section of spec file
 var DefaultSchemes = []string{"http", "https"}
 
-// NewHTTPClient creates a new todo list HTTP client.
-func NewHTTPClient(formats strfmt.Registry) *TodoList {
+// NewHTTPClient creates a new simple to do list HTTP client.
+func NewHTTPClient(formats strfmt.Registry) *SimpleToDoList {
 	return NewHTTPClientWithConfig(formats, nil)
 }
 
-// NewHTTPClientWithConfig creates a new todo list HTTP client,
+// NewHTTPClientWithConfig creates a new simple to do list HTTP client,
 // using a customizable transport config.
-func NewHTTPClientWithConfig(formats strfmt.Registry, cfg *TransportConfig) *TodoList {
+func NewHTTPClientWithConfig(formats strfmt.Registry, cfg *TransportConfig) *SimpleToDoList {
 	// ensure nullable parameters have default
 	if formats == nil {
 		formats = strfmt.Default
@@ -48,9 +48,9 @@ func NewHTTPClientWithConfig(formats strfmt.Registry, cfg *TransportConfig) *Tod
 	return New(transport, formats)
 }
 
-// New creates a new todo list client
-func New(transport runtime.ClientTransport, formats strfmt.Registry) *TodoList {
-	cli := new(TodoList)
+// New creates a new simple to do list client
+func New(transport runtime.ClientTransport, formats strfmt.Registry) *SimpleToDoList {
+	cli := new(SimpleToDoList)
 	cli.Transport = transport
 
 	cli.Todos = todos.New(transport, formats)
@@ -97,15 +97,15 @@ func (cfg *TransportConfig) WithSchemes(schemes []string) *TransportConfig {
 	return cfg
 }
 
-// TodoList is a client for todo list
-type TodoList struct {
+// SimpleToDoList is a client for simple to do list
+type SimpleToDoList struct {
 	Todos *todos.Client
 
 	Transport runtime.ClientTransport
 }
 
 // SetTransport changes the transport on the client and all its subresources
-func (c *TodoList) SetTransport(transport runtime.ClientTransport) {
+func (c *SimpleToDoList) SetTransport(transport runtime.ClientTransport) {
 	c.Transport = transport
 
 	c.Todos.SetTransport(transport)
